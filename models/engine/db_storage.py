@@ -79,7 +79,15 @@ class DBStorage:
                 item = self.__session.query(classes[clss]).get({"key": key})
                 return item
         return None
-
+    
+    def count(self, cls=None):
+        """
+        count of how many instances of a class
+        :param cls: class name
+        :return: count of instances of a class
+        """
+        return len(self.all(cls))
+    
     def close(self):
         """call remove() method on the private session attribute"""
         self.__session.remove()
