@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Contains the class DBStorage
-"""
+""" 
 
 import models
 from models.amenity import Amenity
@@ -70,6 +70,15 @@ class DBStorage:
         sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(sess_factory)
         self.__session = Session
+
+    def get(self, cls, id):
+        """Returns the object based on the class and its ID, or None if not found"""
+        for clss in classes:
+            if cls is not None and cls is classes[clss] or cls is clss:
+                key = cls.__name__ + '.' + id
+                item = self.__session.query(classes[clss]).get({"key": key})
+                return item
+        return None
 
     def close(self):
         """call remove() method on the private session attribute"""
