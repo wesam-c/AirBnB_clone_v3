@@ -14,6 +14,7 @@ Updated the Storage Engines and added a method to retrieve one object ```def get
 (wesam): added the 'count' method to DBStorage - it will be needed in task 4
 
 ## TASK 3
+<<<<<<< Updated upstream
 - Made __init__ files inside each folder in api folder
 - app file: created a variable app -instance of Flask-
             -imported storage from models & app_views from api.v1.views
@@ -29,3 +30,7 @@ Updated the Storage Engines and added a method to retrieve one object ```def get
 ## TASK 4
 Continued working in index file:
 - Createed an endpoint that retrieves the number of each objects by type
+=======
+- Created __init__ files inside wach folder
+- app file:
+>>>>>>> Stashed changes
