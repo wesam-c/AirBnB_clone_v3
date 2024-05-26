@@ -39,3 +39,9 @@ Continued working in index file:
 - Implement the get_states function that retrieves all State objects from storage and returns them in JSON format.
 
 - Implement the get_state function that retrieves a State object by state_id from storage. If not found, return a 404 error.
+
+- Implement the delete_state function that deletes a State object by state_id from storage. If not found, return a 404 error. Return an empty dictionary with status code 200.
+
+-  Implement the create_state function that creates a new State object using data from the request body. If the request body is not valid JSON, return a 400 error with the message "Not a JSON". If the name is missing, return a 400 error with the message "Missing name". Return the new State with status code 201.
+
+- Implement the update_state function that updates a State object using data from the request body. If the request body is not valid JSON, return a 400 error with the message "Not a JSON". Ignore the id, created_at, and updated_at keys during the update. Return the updated State with status code 200.
