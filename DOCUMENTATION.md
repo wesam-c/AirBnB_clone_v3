@@ -34,3 +34,8 @@ Continued working in index file:
 - Created __init__ files inside wach folder
 - app file:
 >>>>>>> Stashed changes
+
+## TASK 6
+- Implement the get_states function that retrieves all State objects from storage and returns them in JSON format.
+
+- Implement the get_state function that retrieves a State object by state_id from storage. If not found, return a 404 error.
