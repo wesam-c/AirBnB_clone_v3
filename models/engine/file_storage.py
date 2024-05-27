@@ -64,16 +64,23 @@ class FileStorage:
             key = obj.__class__.__name__ + '.' + obj.id
             if key in self.__objects:
                 del self.__objects[key]
-    
-    def get(self, cls, id):
-        """Returns the object based on the class and its ID, or None if not found"""
-        if cls is not None:
-            key = cls.__name__ + '.' + id
-            if key in cls.__objects:
-                return cls.__objects[key]
-        return None
 
     def close(self):
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()
 
+    def get(self, cls, id):
+        """ retrieves """
+        if cls in classes.values() and id and type(id) == str:
+            d_obj = self.all(cls)
+            for key, value in d_obj.items():
+                if key.split(".")[1] == id:
+                    return value
+        return None
+
+    def count(self, cls=None):
+        """ counts """
+        data = self.all(cls)
+        if cls in classes.values():
+            data = self.all(cls)
+        return len(data)
