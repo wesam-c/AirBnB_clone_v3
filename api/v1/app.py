@@ -3,17 +3,26 @@
 APP
 """
 
-from flask import Flask, jsonify
+from flask import Flask, make_response, jsonify
 from flask_cors import CORS
 from os import getenv
 from models import storage
 from api.v1.views import app_views
+from flasgger import Swagger
 
 app = Flask(__name__)
-
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
-
 app.register_blueprint(app_views)
+
+app.config['SWAGGER'] = {
+    'title': 'AirBnB clone - RESTful API',
+    'description': 'This is the api that was created for the hbnb restful api project,\
+    all the documentation will be shown below',
+    'uiversion': 3}
+
+Swagger(app)
+
 
 @app.teardown_appcontext
 def teardown(exception):
