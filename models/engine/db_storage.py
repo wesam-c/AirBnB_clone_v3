@@ -79,14 +79,15 @@ class DBStorage:
                 if key.split(".")[1] == id:
                     return value
         return None
-
+    
     def count(self, cls=None):
-        """ counts """
-        data = self.all(cls)
-        if cls in classes.values():
-            data = self.all(cls)
-        return len(data)
-
+        """
+        count of how many instances of a class
+        :param cls: class name
+        :return: count of instances of a class
+        """
+        return len(self.all(cls))
+    
     def close(self):
         """call remove() method on the private session attribute"""
         self.__session.remove()
